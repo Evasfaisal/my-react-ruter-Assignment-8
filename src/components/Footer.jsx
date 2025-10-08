@@ -1,20 +1,58 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
     return (
-        <footer className="bg-slate-900 text-white mt-12">
-            <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between">
-                <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded" />
-                    <div className="font-semibold">HERO.IO</div>
+        <footer className="bg-black text-white py-10 mt-20">
+            <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center sm:text-left">
+
+                {/* Brand */}
+                <div>
+                    <div className="flex items-center justify-center sm:justify-start gap-3 mb-3">
+                        <img src="/assets/logo.png" alt="Logo" className="w-10 h-10 rounded-full" />
+                        <h2 className="text-lg font-bold">HERO.IO</h2>
+                    </div>
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                        We craft innovative apps that simplify your world — turning ideas into digital experiences that inspire productivity.
+                    </p>
                 </div>
-                <div className="text-sm opacity-70">Copyright © 2025 - All rights reserved</div>
-                <div className="flex items-center gap-4">
-                    <a href="#" aria-label="github" className="hover:text-gray-300"><FaGithub /></a>
-                    <a href="#" aria-label="linkedin" className="hover:text-gray-300"><FaLinkedin /></a>
-                    <a href="#" aria-label="facebook" className="hover:text-gray-300"><FaFacebook /></a>
+
+                {/* Quick Links */}
+                <div>
+                    <h3 className="font-semibold text-lg mb-3 text-purple-400">Quick Links</h3>
+                    <ul className="space-y-2 text-gray-300 text-sm">
+                        <li><a href="/" className="hover:text-white">Home</a></li>
+                        <li><a href="/apps" className="hover:text-white">Apps</a></li>
+                        <li><a href="/about" className="hover:text-white">About</a></li>
+                        <li><a href="/contact" className="hover:text-white">Contact</a></li>
+                    </ul>
                 </div>
+
+                {/* Support */}
+                <div>
+                    <h3 className="font-semibold text-lg mb-3 text-purple-400">Support</h3>
+                    <ul className="space-y-2 text-gray-300 text-sm">
+                        <li><a href="#" className="hover:text-white">Help Center</a></li>
+                        <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" className="hover:text-white">Terms & Conditions</a></li>
+                        <li><a href="#" className="hover:text-white">Community</a></li>
+                    </ul>
+                </div>
+
+                {/* Social */}
+                <div>
+                    <h3 className="font-semibold text-lg mb-3 text-purple-400">Follow Us</h3>
+                    <div className="flex justify-center sm:justify-start gap-5 text-2xl">
+                        <a href="#" className="hover:text-pink-400"><FaInstagram /></a>
+                        <a href="#" className="hover:text-blue-400"><FaTwitter /></a>
+                        <a href="#" className="hover:text-blue-600"><FaLinkedin /></a>
+                        <a href="#" className="hover:text-blue-500"><FaFacebook /></a>
+                    </div>
+                </div>
+            </div>
+
+            <div className="mt-10 border-t border-white/10 pt-6 text-center text-gray-400 text-xs sm:text-sm">
+                © 2025 HERO.IO — All Rights Reserved.
             </div>
         </footer>
     );

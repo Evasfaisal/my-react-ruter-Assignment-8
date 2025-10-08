@@ -1,79 +1,87 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import AppCard from "../components/AppCard";
-import appsData from "../data/app"; // JSON data
-import { FaApple, FaGooglePlay } from "react-icons/fa";
+import appsData from "../data/app";
 
 export default function Home() {
     const navigate = useNavigate();
-    const topApps = appsData.slice(0, 8); // Top 8 apps
+    const topApps = appsData.slice(0, 8);
 
     return (
-        <div className="max-w-7xl mx-auto px-6 py-8">
-            {/* Banner */}
-            <section className="text-center py-12   mb-12 ">
-                <h1 className="text-7xl font-bold mb-4">We Build</h1>
+        <div>
+            {/* Hero Section */}
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 text-center">
+                <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4">We Build</h1>
+                <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4">
+                    <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                        Productive
+                    </span>{" "}
+                    Apps
+                </h1>
 
-                <h1 className="text-7xl font-bold mb-4">  <span className="bg-gradient-to-r from-purple-600 to-purple-600 bg-clip-text text-transparent">
-                    Productive
-                </span> Apps</h1>
+                <p className="text-gray-500 mb-8 max-w-2xl mx-auto text-sm sm:text-base">
+                    At HERO.IO, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting.
+                </p>
 
-
-                <p className="text-gray-400 mb-8">At HERO.IO , we craft innovative apps designed to make everyday life simpler, smarter, and more exciting.Our goal is to turn your ideas into digital experiences that truly make an impact.</p>
-
-          
-
-                <div className="flex justify-center gap-4">
-                    <a
-                        href="https://play.google.com/store"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200"
-                    >
+                <div className="flex justify-center gap-4 flex-wrap">
+                    <a href="https://play.google.com/store" target="_blank" rel="noreferrer"
+                        className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg shadow hover:bg-gray-200">
                         <img src="fi_16076057.png" alt="Google Play" className="w-6 h-6" />
                         <span>Play Store</span>
                     </a>
-
-                    <a
-                        href="https://www.apple.com/app-store/"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200"
-                    >
+                    <a href="https://www.apple.com/app-store/" target="_blank" rel="noreferrer"
+                        className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg shadow hover:bg-gray-200">
                         <img src="Group.png" alt="App Store" className="w-6 h-6" />
                         <span>App Store</span>
                     </a>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
             </section>
 
-            {/* States Section */}
-            <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                <div className="bg-red-100 p-6 rounded-lg text-center font-semibold">Downloads: 1M+</div>
-                <div className="bg-green-100 p-6 rounded-lg text-center font-semibold">Reviews: 500K+</div>
-                <div className="bg-blue-100 p-6 rounded-lg text-center font-semibold">Top Rated Apps</div>
+            {/* Hero Image */}
+            <section className="flex justify-center mb-[-48px]">
+                <img src="/assets/hero.png" alt="App Preview"
+                    className="w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] h-auto" />
             </section>
 
-            {/* Top Apps Section */}
-            <section>
-                <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-2xl font-bold">Top Apps</h2>
-                    <button onClick={() => navigate("/apps")} className="text-indigo-600 font-medium hover:underline">Show All</button>
+            {/* Stats Section */}
+            <section className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center py-16 px-4  mt-12">
+                <h2 className="text-2xl sm:text-3xl font-extrabold mb-10">Trusted By Millions, Built For You</h2>
+                <div className="flex flex-col md:flex-row justify-center items-center gap-10">
+                    {[
+                        { num: "29.6M", label: "Total Downloads", sub: "21% More Than Last Month" },
+                        { num: "906K", label: "Total Reviews", sub: "46% More Than Last Month" },
+                        { num: "132+", label: "Active Apps", sub: "31 More Will Launch" },
+                    ].map((item, i) => (
+                        <div key={i}>
+                            <p className="text-4xl font-extrabold">{item.num}</p>
+                            <p className="text-sm uppercase tracking-wide">{item.label}</p>
+                            <p className="text-xs opacity-80">{item.sub}</p>
+                        </div>
+                    ))}
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                    {topApps.map(app => (
+            </section>
+
+            {/* Trending Apps */}
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 mt-16">
+                <div className="text-center mb-6">
+                    <h2 className="text-2xl font-bold mb-3">Trending Apps</h2>
+                    <p className="text-gray-500 text-sm sm:text-base">
+                        Explore all trending apps on the market developed by us.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+                    {topApps.map((app) => (
                         <AppCard key={app.id} app={app} />
                     ))}
+                </div>
+
+                <div className="flex justify-center">
+                    <button
+                        onClick={() => navigate("/apps")}
+                        className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-3 rounded-lg font-medium hover:opacity-90">
+                        Show All
+                    </button>
                 </div>
             </section>
         </div>

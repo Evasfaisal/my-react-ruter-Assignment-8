@@ -1,41 +1,49 @@
-import React from "react";
-import { FaGithub } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaGithub, FaBars, FaTimes } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 export default function Header() {
+    const [open, setOpen] = useState(false);
+
     return (
-        <header className="bg-white border-b">
-            <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-              
-                <NavLink to="/" className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold">
-                        <img src="/assets/logo.png" alt="Logo" />
-                    </div>
-                    <span className="font-semibold text-indigo-700">HERO.IO</span>
+        <header className="bg-white border-b sticky top-0 z-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+
+                {/* Logo */}
+                <NavLink to="/" className="flex items-center gap-2">
+                    <img src="/assets/logo.png" alt="Logo" className="w-10 h-10 rounded-full" />
+                    <span className="font-semibold text-indigo-700 text-lg">HERO.IO</span>
                 </NavLink>
 
-            
-                <nav className="flex-1 flex justify-center gap-6 text-sm text-gray-700">
-                    <NavLink to="/" className={({ isActive }) => isActive ? "text-indigo-600 font-medium" : "font-bold"}>Home</NavLink>
-                    <NavLink to="/apps" className={({ isActive }) => isActive ? "text-indigo-600 font-medium" : "font-bold"}>Apps</NavLink>
-                    <NavLink to="/installed" className={({ isActive }) => isActive ? "text-indigo-600 font-bold" : "font-bold"}>Installation</NavLink>
+                {/* Mobile Menu Button */}
+                <button
+                    onClick={() => setOpen(!open)}
+                    className="md:hidden text-gray-700 text-2xl focus:outline-none"
+                >
+                    {open ? <FaTimes /> : <FaBars />}
+                </button>
+
+                {/* Nav Links */}
+                <nav
+                    className={`${open ? "block" : "hidden"
+                        } absolute md:static bg-white md:flex md:items-center w-full md:w-auto left-0 top-[70px] md:top-auto border-t md:border-none md:space-x-8 text-center md:text-left transition-all`}
+                >
+                    <NavLink to="/" className="block px-4 py-2 text-gray-700 hover:text-indigo-600 font-bold ">Home</NavLink>
+                    <NavLink to="/apps" className="block px-4 py-2 text-gray-700 hover:text-indigo-600 font-bold">Apps</NavLink>
+                    <NavLink to="/installed" className="block px-4 py-2 text-gray-700 hover:text-indigo-600 font-bold">Installation</NavLink>
                 </nav>
 
-             
-           
-
+                {/* GitHub Button */}
                 <a
                     href="https://github.com/Evasfaisal"
                     target="_blank"
                     rel="noreferrer"
-                    className="ml-4 inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-md"
+                    className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-indigo-600 text-white rounded-md hover:opacity-90"
                 >
                     <FaGithub className="w-4 h-4" />
-                    <span >Contribute</span>
+                    <span>Contribute</span>
                 </a>
-
             </div>
         </header>
-
     );
 }
