@@ -9,13 +9,13 @@ export default function Home() {
 
     return (
         <div>
-            {/* Hero Section */}
+        
             <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 text-center">
                 <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4">We Build</h1>
                 <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4">
-                    <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent mr-3">
                         Productive
-                    </span>{" "}
+                    </span>
                     Apps
                 </h1>
 
@@ -37,13 +37,13 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Hero Image */}
+         
             <section className="flex justify-center mb-[-48px]">
                 <img src="/assets/hero.png" alt="App Preview"
                     className="w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] h-auto" />
             </section>
 
-            {/* Stats Section */}
+     
             <section className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center py-16 px-4  mt-12">
                 <h2 className="text-2xl sm:text-3xl font-extrabold mb-10">Trusted By Millions, Built For You</h2>
                 <div className="flex flex-col md:flex-row justify-center items-center gap-10">

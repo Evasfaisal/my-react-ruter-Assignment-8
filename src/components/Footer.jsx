@@ -6,7 +6,7 @@ export default function Footer() {
         <footer className="bg-black text-white py-10 mt-20">
             <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center sm:text-left">
 
-                {/* Brand */}
+              
                 <div>
                     <div className="flex items-center justify-center sm:justify-start gap-3 mb-3">
                         <img src="/assets/logo.png" alt="Logo" className="w-10 h-10 rounded-full" />
@@ -17,7 +17,7 @@ export default function Footer() {
                     </p>
                 </div>
 
-                {/* Quick Links */}
+            
                 <div>
                     <h3 className="font-semibold text-lg mb-3 text-purple-400">Quick Links</h3>
                     <ul className="space-y-2 text-gray-300 text-sm">
@@ -28,7 +28,6 @@ export default function Footer() {
                     </ul>
                 </div>
 
-                {/* Support */}
                 <div>
                     <h3 className="font-semibold text-lg mb-3 text-purple-400">Support</h3>
                     <ul className="space-y-2 text-gray-300 text-sm">
@@ -39,7 +38,7 @@ export default function Footer() {
                     </ul>
                 </div>
 
-                {/* Social */}
+              
                 <div>
                     <h3 className="font-semibold text-lg mb-3 text-purple-400">Follow Us</h3>
                     <div className="flex justify-center sm:justify-start gap-5 text-2xl">

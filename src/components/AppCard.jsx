@@ -8,7 +8,7 @@ export default function AppCard({ app, installed, onInstall, onUninstall }) {
             to={`/app/${app.id}`}
             className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col cursor-pointer p-3"
         >
-            {/* Image */}
+        
             <div className="w-full aspect-square bg-gray-200 rounded-lg overflow-hidden mb-3">
                 <img
                     src={app.image}
@@ -17,7 +17,7 @@ export default function AppCard({ app, installed, onInstall, onUninstall }) {
                 />
             </div>
 
-            {/* Title + Company */}
+        
             <div className="flex-1 mb-3">
                 <h3 className="text-base font-semibold text-gray-900 truncate">
                     {app.title}
@@ -25,7 +25,6 @@ export default function AppCard({ app, installed, onInstall, onUninstall }) {
               
             </div>
 
-            {/* Stats (Downloads + Rating) */}
             <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-1 bg-green-50 text-green-600 text-xs font-medium px-2 py-1 rounded-md">
                     <FaDownload className="text-[10px]" />
@@ -37,10 +36,10 @@ export default function AppCard({ app, installed, onInstall, onUninstall }) {
                 </div>
             </div>
 
-            {/* Install / Installed / Uninstall Buttons */}
+        
             <div
                 className="mt-auto"
-                onClick={(e) => e.stopPropagation()} // prevent link click
+                onClick={(e) => e.stopPropagation()} 
             >
                 {!installed && onInstall && (
                     <button
