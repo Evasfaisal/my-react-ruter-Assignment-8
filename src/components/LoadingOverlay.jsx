@@ -1,14 +1,29 @@
+
 import React from "react";
 
 export default function LoadingOverlay() {
     return (
-        <div className="fixed inset-0 z-50 bg-black/20 flex items-center justify-center">
-            <div className="bg-white p-6 rounded-lg shadow flex items-center gap-4">
-                <svg className="animate-spin h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                </svg>
-                <span>Loading...</span>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/80 backdrop-blur-sm">
+            <div className="flex items-center text-4xl font-bold text-indigo-700">
+             
+                <span className="mr-2">L</span>
+
+              
+                <img
+                    src="/logo.png" 
+                    alt="Loading"
+                    className="w-14 h-14 animate-spin-slow"
+                />
+
+              
+                <span className="ml-2 flex items-center">
+                    DING
+                    <span className="flex gap-[2px] ml-1 text-indigo-500">
+                        <span className="animate-bounce delay-100">.</span>
+                        <span className="animate-bounce delay-200">.</span>
+                        <span className="animate-bounce delay-300">.</span>
+                    </span>
+                </span>
             </div>
         </div>
     );

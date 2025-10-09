@@ -19,8 +19,8 @@ export const router = createBrowserRouter([
             {
                 path: "apps",
                 children: [
-                    { index: true, element: <Apps /> }, // ✅ /apps
-                    { path: ":wrong*", element: <AppNotFound /> }, // ✅ /apps/anything => AppNotFound
+                    { index: true, element: <Apps /> },
+                    { path: ":wrong*", element: <AppNotFound /> }, 
                 ],
             },
 
@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
             { path: "installed", element: <Installed /> },
             { path: "app-not-found", element: <AppNotFound /> },
 
-            // ✅ everything else
+      
             { path: "*", element: <PageNotFound /> },
         ],
     },

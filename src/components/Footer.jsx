@@ -9,7 +9,7 @@ export default function Footer() {
               
                 <div>
                     <div className="flex items-center justify-center sm:justify-start gap-3 mb-3">
-                        <img src="/assets/logo.png" alt="Logo" className="w-10 h-10 rounded-full" />
+                        <img src="/logo.png" alt="Logo" className="w-10 h-10 rounded-full" />
                         <h2 className="text-lg font-bold">HERO.IO</h2>
                     </div>
                     <p className="text-gray-400 text-sm leading-relaxed">

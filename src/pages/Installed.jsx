@@ -5,21 +5,19 @@ import LoadingOverlay from "../components/LoadingOverlay";
 
 export default function Installed() {
     const [apps, setApps] = useState([]);
-    const [sortBy, setSortBy] = useState("size");
+    const [sortBy, setSortBy] = useState("downloads-high-low");
     const [loading, setLoading] = useState(true);
 
-  
     useEffect(() => {
         setLoading(true);
         const timer = setTimeout(() => {
             const stored = JSON.parse(localStorage.getItem("installedApps") || "[]");
             setApps(stored);
             setLoading(false);
-        }, 1000); 
+        }, 1000);
         return () => clearTimeout(timer);
     }, []);
 
-   
     const handleUninstall = (id) => {
         const updated = apps.filter((a) => a.id !== id);
         setApps(updated);
@@ -27,25 +25,22 @@ export default function Installed() {
         toast.info("App uninstalled successfully!");
     };
 
- 
     const handleSortChange = (value) => {
         setSortBy(value);
         let sorted = [...apps];
-        if (value === "size") sorted.sort((a, b) => a.size - b.size);
-        if (value === "rating") sorted.sort((a, b) => b.rating - a.rating);
-        if (value === "downloads")
-            sorted.sort(
-                (a, b) => parseInt(b.downloads) - parseInt(a.downloads)
-            );
+
+        if (value === "downloads-high-low")
+            sorted.sort((a, b) => parseInt(b.downloads) - parseInt(a.downloads));
+        if (value === "downloads-low-high")
+            sorted.sort((a, b) => parseInt(a.downloads) - parseInt(b.downloads));
+
         setApps(sorted);
     };
 
     return (
         <div className="bg-gray-50 min-h-screen py-10 px-6 relative">
-          
             {loading && <LoadingOverlay />}
 
-       
             <div className="text-center mb-12">
                 <h1 className="text-4xl font-bold text-gray-900">Your Installed Apps</h1>
                 <p className="text-gray-500 mt-2">
@@ -53,7 +48,6 @@ export default function Installed() {
                 </p>
             </div>
 
-          
             <div className="flex flex-col md:flex-row justify-between items-center mb-6">
                 <p className="text-lg font-semibold text-gray-800">
                     {apps.length} Apps Found
@@ -64,9 +58,8 @@ export default function Installed() {
                     onChange={(e) => handleSortChange(e.target.value)}
                     className="border border-gray-300 text-gray-600 text-sm rounded-lg px-3 py-2 focus:outline-none"
                 >
-                    <option value="size">Sort by Size</option>
-                    <option value="rating">Sort by Rating</option>
-                    <option value="downloads">Sort by Downloads</option>
+                    <option value="downloads-high-low">Sort by Downloads (High-Low)</option>
+                    <option value="downloads-low-high">Sort by Downloads (Low-High)</option>
                 </select>
             </div>
 

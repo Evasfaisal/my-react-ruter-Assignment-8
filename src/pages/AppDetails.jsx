@@ -18,7 +18,7 @@ export default function AppDetail() {
         const timer = setTimeout(() => {
             const foundApp = appsData.find((a) => a.id === Number(id));
 
-            // ✅ App না পেলে AppNotFound দেখাও
+            // 
             if (!foundApp) {
                 navigate("/app-not-found", { replace: true });
             } else {
@@ -60,7 +60,7 @@ export default function AppDetail() {
     };
 
     if (loading) return <LoadingOverlay />;
-    if (!app) return null; // Navigate হয়ে গেলে কিছু দেখিও না
+    if (!app) return null; 
 
     return (
         <div className="max-w-6xl mx-auto px-6 py-10 bg-gray-50">

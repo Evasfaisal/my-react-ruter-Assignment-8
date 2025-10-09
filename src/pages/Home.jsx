@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import AppCard from "../components/AppCard";
 import appsData from "../data/app";
+import { LoaderContext } from "../context/LoaderContext"; 
 
 export default function Home() {
     const navigate = useNavigate();
+    const { triggerLoader } = useContext(LoaderContext);
     const topApps = appsData.slice(0, 8);
 
     return (
         <div>
-        
             <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 text-center">
                 <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4">We Build</h1>
                 <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4">
@@ -24,27 +25,36 @@ export default function Home() {
                 </p>
 
                 <div className="flex justify-center gap-4 flex-wrap">
-                    <a href="https://play.google.com/store" target="_blank" rel="noreferrer"
-                        className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg shadow hover:bg-gray-200">
+                    <a
+                        href="https://play.google.com/store"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg shadow hover:bg-gray-200"
+                    >
                         <img src="fi_16076057.png" alt="Google Play" className="w-6 h-6" />
                         <span>Play Store</span>
                     </a>
-                    <a href="https://www.apple.com/app-store/" target="_blank" rel="noreferrer"
-                        className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg shadow hover:bg-gray-200">
+                    <a
+                        href="https://www.apple.com/app-store/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex items-center gap-2 bg-white text-black px-6 py-3 rounded-lg shadow hover:bg-gray-200"
+                    >
                         <img src="Group.png" alt="App Store" className="w-6 h-6" />
                         <span>App Store</span>
                     </a>
                 </div>
             </section>
 
-         
             <section className="flex justify-center mb-[-48px]">
-                <img src="/assets/hero.png" alt="App Preview"
-                    className="w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] h-auto" />
+                <img
+                    src="/hero.png"
+                    alt="App Preview"
+                    className="w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] h-auto"
+                />
             </section>
 
-     
-            <section className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center py-16 px-4  mt-12">
+            <section className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center py-16 px-4 mt-12">
                 <h2 className="text-2xl sm:text-3xl font-extrabold mb-10">Trusted By Millions, Built For You</h2>
                 <div className="flex flex-col md:flex-row justify-center items-center gap-10">
                     {[
@@ -61,7 +71,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Trending Apps */}
+           
             <section className="max-w-7xl mx-auto px-4 sm:px-6 mt-16">
                 <div className="text-center mb-6">
                     <h2 className="text-2xl font-bold mb-3">Trending Apps</h2>
@@ -78,8 +88,12 @@ export default function Home() {
 
                 <div className="flex justify-center">
                     <button
-                        onClick={() => navigate("/apps")}
-                        className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-3 rounded-lg font-medium hover:opacity-90">
+                        onClick={() => {
+                            triggerLoader(); // 
+                            setTimeout(() => navigate("/apps"), 300); // 
+                        }}
+                        className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-3 rounded-lg font-medium hover:opacity-90"
+                    >
                         Show All
                     </button>
                 </div>
